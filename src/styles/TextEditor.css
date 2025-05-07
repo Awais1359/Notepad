@@ -1,0 +1,77 @@
+.editor-container {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--editor-bg);
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.editor-textarea {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  font-family: 'Roboto Mono', monospace, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.editor-textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* Theme specific variables */
+.light .editor-container {
+  --editor-bg: #ffffff;
+}
+
+.dark .editor-container {
+  --editor-bg: #2d2d2d;
+}
+
+.light .editor-textarea {
+  --text-primary: #333333;
+  --text-secondary: #666666;
+}
+
+.dark .editor-textarea {
+  --text-primary: #f0f0f0;
+  --text-secondary: #aaaaaa;
+}
+
+/* Add a subtle animation when focused */
+.editor-textarea:focus {
+  animation: subtle-glow 0.3s ease;
+}
+
+@keyframes subtle-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0);
+  }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .editor-textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+  
+  .editor-container {
+    padding: 8px;
+  }
+}
